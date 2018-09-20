@@ -1,0 +1,189 @@
+\hypertarget{classobject3D}{}\section{object3D Class Reference}
+\label{classobject3D}\index{object3D@{object3D}}
+
+
+{\ttfamily \#include $<$object3\+D.\+h$>$}
+
+
+
+Collaboration diagram for object3D\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=212pt]{classobject3D__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classobject3D_a0911667d0108c1ae15a60a3e120a2a73}{object3D}} ()
+\item 
+\mbox{\hyperlink{classobject3D_a1c60c123d02bd02d9ca35fd507fb81cd}{object3D}} (vector$<$ glm\+::vec4 $>$ vertices\+\_\+vec\+\_\+3d, vector$<$ vector$<$ int $>$ $>$ line\+\_\+3d)
+\item 
+\mbox{\hyperlink{classobject3D_a6837b926d352b2fd1aff01bed902f1bf}{object3D}} (\mbox{\hyperlink{classorthographic}{orthographic}} obj)
+\item 
+void \mbox{\hyperlink{classobject3D_ab9f47d0de463217dd4cc816d16bf1661}{input\+From\+File}} (string filename)
+\item 
+void \mbox{\hyperlink{classobject3D_a78772ee3fafc1ad79168776baef859fa}{translate}} (float x=0.\+0, float y=0.\+0, float z=0.\+0)
+\item 
+void \mbox{\hyperlink{classobject3D_ab12153ab6a9092e85db7912670d55a48}{scale}} (float x=1.\+0, float y=1.\+0, float z=1.\+0)
+\item 
+void \mbox{\hyperlink{classobject3D_a9599c3e6c9ea35b9496d4b5b14623b5b}{rotate}} (float theta, \mbox{\hyperlink{classline}{line}} axis)
+\item 
+void \mbox{\hyperlink{classobject3D_a63af641d18acc59e4ff0cae8387b06bc}{reflect}} (\mbox{\hyperlink{classplane}{plane}} p)
+\item 
+\mbox{\hyperlink{classobject2D}{object2D}} \mbox{\hyperlink{classobject3D_a4b7bdf9d5a609b34e1ca22490538a37d}{project}} (\mbox{\hyperlink{classplane}{plane}} p)
+\item 
+\mbox{\hyperlink{classorthographic}{orthographic}} \mbox{\hyperlink{classobject3D_a7bb948cdf51a8143338bb8a22e97f910}{orthographic\+\_\+projection}} ()
+\item 
+\mbox{\hyperlink{classobject2D}{object2D}} \mbox{\hyperlink{classobject3D_a18f7b37e4d847917835205c9faf0885e}{isometric\+\_\+projection}} ()
+\item 
+int \mbox{\hyperlink{classobject3D_aeb34ac3e26a3c7a8190f2abadfaa370a}{get\+Num\+Ver}} ()
+\item 
+vector$<$ glm\+::vec4 $>$ \mbox{\hyperlink{classobject3D_a9b0407c5b8444f840d3bebaf3deac07f}{get\+Ver\+Vec}} ()
+\item 
+vector$<$ vector$<$ int $>$ $>$ \mbox{\hyperlink{classobject3D_a4ed285050b7a9def183cbba66766934d}{get\+Edges}} ()
+\end{DoxyCompactItemize}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classobject3D_a0911667d0108c1ae15a60a3e120a2a73}\label{classobject3D_a0911667d0108c1ae15a60a3e120a2a73}} 
+\index{object3D@{object3D}!object3D@{object3D}}
+\index{object3D@{object3D}!object3D@{object3D}}
+\subsubsection{\texorpdfstring{object3\+D()}{object3D()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+{\footnotesize\ttfamily object3\+D\+::object3D (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Constructs a blank 3D figure \mbox{\Hypertarget{classobject3D_a1c60c123d02bd02d9ca35fd507fb81cd}\label{classobject3D_a1c60c123d02bd02d9ca35fd507fb81cd}} 
+\index{object3D@{object3D}!object3D@{object3D}}
+\index{object3D@{object3D}!object3D@{object3D}}
+\subsubsection{\texorpdfstring{object3\+D()}{object3D()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily object3\+D\+::object3D (\begin{DoxyParamCaption}\item[{vector$<$ glm\+::vec4 $>$}]{vertices\+\_\+vec\+\_\+3d,  }\item[{vector$<$ vector$<$ int $>$ $>$}]{line\+\_\+3d }\end{DoxyParamCaption})}
+
+contructor of \mbox{\hyperlink{classobject3D}{object3D}} class given the vertices coordinates and the connection of points stored in adjacency list. 
+\begin{DoxyParams}{Parameters}
+{\em vertices\+\_\+vec\+\_\+3d} & vertices co-\/ordinates \\
+\hline
+{\em line\+\_\+3d} & adjacency list of connection of points. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classobject3D_a6837b926d352b2fd1aff01bed902f1bf}\label{classobject3D_a6837b926d352b2fd1aff01bed902f1bf}} 
+\index{object3D@{object3D}!object3D@{object3D}}
+\index{object3D@{object3D}!object3D@{object3D}}
+\subsubsection{\texorpdfstring{object3\+D()}{object3D()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily object3\+D\+::object3D (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classorthographic}{orthographic}}}]{obj }\end{DoxyParamCaption})}
+
+Function to interactively input the points and their connections in form of lines and then it check the consistency If inconsistent, raises exception else constructs the object. 
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{classobject3D_a4ed285050b7a9def183cbba66766934d}\label{classobject3D_a4ed285050b7a9def183cbba66766934d}} 
+\index{object3D@{object3D}!get\+Edges@{get\+Edges}}
+\index{get\+Edges@{get\+Edges}!object3D@{object3D}}
+\subsubsection{\texorpdfstring{get\+Edges()}{getEdges()}}
+{\footnotesize\ttfamily vector$<$vector$<$int$>$ $>$ object3\+D\+::get\+Edges (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+function to return the edges between all the vertices of the object in form of adjacency list. \mbox{\Hypertarget{classobject3D_aeb34ac3e26a3c7a8190f2abadfaa370a}\label{classobject3D_aeb34ac3e26a3c7a8190f2abadfaa370a}} 
+\index{object3D@{object3D}!get\+Num\+Ver@{get\+Num\+Ver}}
+\index{get\+Num\+Ver@{get\+Num\+Ver}!object3D@{object3D}}
+\subsubsection{\texorpdfstring{get\+Num\+Ver()}{getNumVer()}}
+{\footnotesize\ttfamily int object3\+D\+::get\+Num\+Ver (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+function to return the number of vertices in the object. \mbox{\Hypertarget{classobject3D_a9b0407c5b8444f840d3bebaf3deac07f}\label{classobject3D_a9b0407c5b8444f840d3bebaf3deac07f}} 
+\index{object3D@{object3D}!get\+Ver\+Vec@{get\+Ver\+Vec}}
+\index{get\+Ver\+Vec@{get\+Ver\+Vec}!object3D@{object3D}}
+\subsubsection{\texorpdfstring{get\+Ver\+Vec()}{getVerVec()}}
+{\footnotesize\ttfamily vector$<$glm\+::vec4$>$ object3\+D\+::get\+Ver\+Vec (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+function to return all the coordinates of the 2d object \mbox{\Hypertarget{classobject3D_ab9f47d0de463217dd4cc816d16bf1661}\label{classobject3D_ab9f47d0de463217dd4cc816d16bf1661}} 
+\index{object3D@{object3D}!input\+From\+File@{input\+From\+File}}
+\index{input\+From\+File@{input\+From\+File}!object3D@{object3D}}
+\subsubsection{\texorpdfstring{input\+From\+File()}{inputFromFile()}}
+{\footnotesize\ttfamily void object3\+D\+::input\+From\+File (\begin{DoxyParamCaption}\item[{string}]{filename }\end{DoxyParamCaption})}
+
+Function to input the 2D figure from file and then it check the consistency If inconsistent, raises exception else constructs the object. 
+\begin{DoxyParams}{Parameters}
+{\em filename} & File to be taken as input \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classobject3D_a18f7b37e4d847917835205c9faf0885e}\label{classobject3D_a18f7b37e4d847917835205c9faf0885e}} 
+\index{object3D@{object3D}!isometric\+\_\+projection@{isometric\+\_\+projection}}
+\index{isometric\+\_\+projection@{isometric\+\_\+projection}!object3D@{object3D}}
+\subsubsection{\texorpdfstring{isometric\+\_\+projection()}{isometric\_projection()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classobject2D}{object2D}} object3\+D\+::isometric\+\_\+projection (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Calculates isometric projection of the 3D Figure \mbox{\Hypertarget{classobject3D_a7bb948cdf51a8143338bb8a22e97f910}\label{classobject3D_a7bb948cdf51a8143338bb8a22e97f910}} 
+\index{object3D@{object3D}!orthographic\+\_\+projection@{orthographic\+\_\+projection}}
+\index{orthographic\+\_\+projection@{orthographic\+\_\+projection}!object3D@{object3D}}
+\subsubsection{\texorpdfstring{orthographic\+\_\+projection()}{orthographic\_projection()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classorthographic}{orthographic}} object3\+D\+::orthographic\+\_\+projection (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Calculates orthographic projections of the 3D Figure \mbox{\Hypertarget{classobject3D_a4b7bdf9d5a609b34e1ca22490538a37d}\label{classobject3D_a4b7bdf9d5a609b34e1ca22490538a37d}} 
+\index{object3D@{object3D}!project@{project}}
+\index{project@{project}!object3D@{object3D}}
+\subsubsection{\texorpdfstring{project()}{project()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classobject2D}{object2D}} object3\+D\+::project (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classplane}{plane}}}]{p }\end{DoxyParamCaption})}
+
+Projects the 3D Figure on a given plane 
+\begin{DoxyParams}{Parameters}
+{\em p} & plane on which to project \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classobject3D_a63af641d18acc59e4ff0cae8387b06bc}\label{classobject3D_a63af641d18acc59e4ff0cae8387b06bc}} 
+\index{object3D@{object3D}!reflect@{reflect}}
+\index{reflect@{reflect}!object3D@{object3D}}
+\subsubsection{\texorpdfstring{reflect()}{reflect()}}
+{\footnotesize\ttfamily void object3\+D\+::reflect (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classplane}{plane}}}]{p }\end{DoxyParamCaption})}
+
+Reflects an object about a given plane 
+\begin{DoxyParams}{Parameters}
+{\em p} & plane about which to reflect \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classobject3D_a9599c3e6c9ea35b9496d4b5b14623b5b}\label{classobject3D_a9599c3e6c9ea35b9496d4b5b14623b5b}} 
+\index{object3D@{object3D}!rotate@{rotate}}
+\index{rotate@{rotate}!object3D@{object3D}}
+\subsubsection{\texorpdfstring{rotate()}{rotate()}}
+{\footnotesize\ttfamily void object3\+D\+::rotate (\begin{DoxyParamCaption}\item[{float}]{theta,  }\item[{\mbox{\hyperlink{classline}{line}}}]{axis }\end{DoxyParamCaption})}
+
+Rotates the figure around a given axis by a given angle 
+\begin{DoxyParams}{Parameters}
+{\em theta} & angle to be rotated by \\
+\hline
+{\em axis} & axis about which object is to be rotated \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classobject3D_ab12153ab6a9092e85db7912670d55a48}\label{classobject3D_ab12153ab6a9092e85db7912670d55a48}} 
+\index{object3D@{object3D}!scale@{scale}}
+\index{scale@{scale}!object3D@{object3D}}
+\subsubsection{\texorpdfstring{scale()}{scale()}}
+{\footnotesize\ttfamily void object3\+D\+::scale (\begin{DoxyParamCaption}\item[{float}]{x = {\ttfamily 1.0},  }\item[{float}]{y = {\ttfamily 1.0},  }\item[{float}]{z = {\ttfamily 1.0} }\end{DoxyParamCaption})}
+
+Scales the 3D Figure proportionately 
+\begin{DoxyParams}{Parameters}
+{\em x} & amount of scaling in x-\/direction \\
+\hline
+{\em y} & amount of scaling in y-\/direction \\
+\hline
+{\em z} & amount of scaling in z-\/direction \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classobject3D_a78772ee3fafc1ad79168776baef859fa}\label{classobject3D_a78772ee3fafc1ad79168776baef859fa}} 
+\index{object3D@{object3D}!translate@{translate}}
+\index{translate@{translate}!object3D@{object3D}}
+\subsubsection{\texorpdfstring{translate()}{translate()}}
+{\footnotesize\ttfamily void object3\+D\+::translate (\begin{DoxyParamCaption}\item[{float}]{x = {\ttfamily 0.0},  }\item[{float}]{y = {\ttfamily 0.0},  }\item[{float}]{z = {\ttfamily 0.0} }\end{DoxyParamCaption})}
+
+Translates the 3D Figure to a different 3D location. 
+\begin{DoxyParams}{Parameters}
+{\em x} & amount of translation in x-\/direction \\
+\hline
+{\em y} & amount of translation in y-\/direction \\
+\hline
+{\em z} & amount of translation in z-\/direction \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{object3D_8h}{object3\+D.\+h}}\end{DoxyCompactItemize}

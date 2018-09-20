@@ -1,0 +1,490 @@
+%\documentclass[12pt,3p]{elsarticle}
+%\documentclass[manuscript=article]{achemso}
+\documentclass[12pt]{article}
+% \documentclass[Proceedings]{ascelike}
+% \documentclass[12pt]{abcdef}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{algorithm}
+\usepackage{algorithmic}
+\usepackage[a4paper, total={6in, 9in}]{geometry}
+\newtheorem{theorem}{Theorem}
+\newcommand{\norm}[1]{\left\lVert#1\right\rVert}
+
+\title{Analysis of 2D-3D Conversion of Computer Graphics}
+
+\author{Sankalp Garg, Nalawade Sarvesh Bharat}
+\date{}
+\renewcommand{\thesection}{\Roman{section}} 
+\renewcommand \thesubsection{\arabic{section}.\arabic{subsection}}
+% \renewcommand{\thesubsection}{\thesection.\Roman{subsection}}
+% \email{ee1160440@iitd.ac.in}
+% \author{}
+% \email{ee1160442@iitd.ac.in}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+    One of the major challenges in the computer graphics is the reconstruction of 3D figure from the given orthographic. Here we present some mathematical analysis and algorithms for the same.
+\end{abstract}
+
+\section{Introduction}
+    The paper is divided into several section were we present the analysis to convert the 3D figure into orthographic projection onto any plane, create isometric views from the 3D figure. We also present the reconstruction of 3D figure from the 2D orthographic views. We build upon the theory by listing out several mathematical terminology, formulas and equations and finally conclude with the reconstruction algorithm.
+	
+\section{Homogeneous Co-ordinates}
+
+	To represent a vertex $P(x,y,z)$ in ${\rm I\!R}^3$, we will use a 4-d vector $(x,y,z,w)$ where $ w \neq 0$ . The same co-ordinates can also be use to represent a direction if $w = 0$. This convention allows us to handle rotation and translation of a vertex as well a direction with a single mathematical formula.
+
+\section{Affine Transformations}
+
+In geometry, an affine transformation is a transformation which preserves points, straight lines and planes. Also, a set of parallel lines remain parallel after an affine transformation. It does not preserve angles between lines or distances between points but does preserve ratios of distances between points lying on a straight line. Affine transformations include translation, scaling, reflection, rotation, shear mapping and compositions of them in any combination and sequence.
+
+\subsection{Translation}
+
+	To translate a point $P(x,y,z)$ in ${\rm I\!R}^3$ by $x_0$, $y_0$, $z_0$, we can perform the following transformation:
+
+\begin{equation}
+	\begin{bmatrix}
+		1 & 0 & 0 & x_0 \\
+		0 & 1 & 0 & y_0 \\
+		0 & 0 & 1 & z_0 \\
+		0 & 0 & 0 & 1  
+	\end{bmatrix} 
+	\begin{bmatrix}
+		x \\ y \\ z \\ 1
+	\end{bmatrix}  = 
+	\begin{bmatrix}
+		x + x_0 \\ y + y_0 \\ z + z_0 \\ 1
+	\end{bmatrix}
+\end{equation}	 
+
+\subsection{Scaling}
+
+	To scale a point $P(x,y,z)$ by the factors $ s_x, s_y, s_z $ in $x,y,z$ directions respectively, we can do the following transformation:
+\begin{equation}
+	\begin{bmatrix}
+	s_x & 0 & 0 & 0 \\
+	0 & s_y & 0 & 0 \\
+	0 & 0 & s_z & 0 \\
+	0 & 0 & 0 & 1  
+	\end{bmatrix}
+	\begin{bmatrix}
+	x \\ y \\ z \\ 1
+	\end{bmatrix} = 
+	\begin{bmatrix}
+	s_x x \\ s_y y \\ s_z z \\ 1
+	\end{bmatrix}
+\end{equation}
+
+\subsection{Rotation}
+	
+	For rotation about $x$,$y$ and $z$ axes of angle $\theta$, we can use the following rotational matrices: 
+	$$
+	R_x = \begin{bmatrix}
+	1 & 0 & 0 & 0 \\
+	0 & \cos \theta & -\sin \theta & 0 \\
+	0 & \sin \theta & \cos \theta & 0 \\
+	0 & 0 & 0 & 1  
+	\end{bmatrix} ; 
+	R_y = \begin{bmatrix}
+	\cos \theta & 0 & \sin \theta & 0 \\
+	0 & 1 & 0 & 0 \\
+	-\sin \theta & 0 & \cos \theta & 0 \\
+	0 & 0 & 0 & 1  
+	\end{bmatrix} ; 
+	R_z = \begin{bmatrix}
+	\cos \theta & -\sin \theta & 0 & 0 \\
+	\sin \theta & \cos \theta & 0 & 0 \\
+	0 & 0 & 1 & 0 \\	
+	0 & 0 & 0 & 1  
+	\end{bmatrix}
+	$$
+	
+	For rotation about an arbitrary axis, we can:
+	\begin{enumerate}
+	    \item Perform transformations which align the rotation axis with one of the co-ordinate axis $x$, $y$, $z$.
+	    \item Perform rotation about the axis.
+	    \item Perform inverse of (1)
+	\end{enumerate}
+	
+	Given a unit vector $\textbf{u} = (u_x, u_y, u_z) $  the matrix for a rotation by an angle $\theta$ about an axis in the direction of u is:
+	$${\displaystyle R={\begin{bmatrix}\cos \theta +u_{x}^{2}\left(1-\cos \theta \right)&u_{x}u_{y}\left(1-\cos \theta \right)-u_{z}\sin \theta &u_{x}u_{z}\left(1-\cos \theta \right)+u_{y}\sin \theta \\u_{y}u_{x}\left(1-\cos \theta \right)+u_{z}\sin \theta &\cos \theta +u_{y}^{2}\left(1-\cos \theta \right)&u_{y}u_{z}\left(1-\cos \theta \right)-u_{x}\sin \theta \\u_{z}u_{x}\left(1-\cos \theta \right)-u_{y}\sin \theta &u_{z}u_{y}\left(1-\cos \theta \right)+u_{x}\sin \theta &\cos \theta +u_{z}^{2}\left(1-\cos \theta \right)\end{bmatrix}}}$$
+	
+\section{Axonometric Projections}
+
+An axonometric projection is produced by an affine transformation which has a zero value for its determinant. An axonometric projection onto a plane $ z = n $ can be obtained by the following operation: 
+\begin{equation}
+	\begin{bmatrix} X \\ Y \\ Z \\ W \end{bmatrix} = 
+	\begin{bmatrix}
+		1 & 0 & 0 & 0 \\
+		0 & 1 & 0 & 0 \\
+		0 & 0 & 0 & n \\
+		0 & 0 & 0 & 1 
+	\end{bmatrix} 
+	\begin{bmatrix}
+	x \\ y \\ z \\ 1
+	\end{bmatrix} = 
+	\begin{bmatrix}
+	x \\ y \\ n \\ 1
+	\end{bmatrix}
+\end{equation}
+
+\subsection{Orthographic Projection of a Point}
+	
+	Axonometric projection transformations onto the appropriate zero plane always contain a column of zeros, which corresponds to the plane of projection. Such projections are called orthographic projections. An orthographic projection on to $yz$, $xz$ and $xy$ planes can be given by following transformation matrices:
+	\begin{equation} \label{orthographic_std}
+	    	P_{yz} = \begin{bmatrix}
+	0 & 0 & 0 & 0 \\
+	0 & 1 & 0 & 0 \\
+	0 & 0 & 1 & 0 \\
+	0 & 0 & 0 & 1  
+	\end{bmatrix}
+	P_{xz} = \begin{bmatrix}
+	1 & 0 & 0 & 0 \\
+	0 & 0 & 0 & 0 \\
+	0 & 0 & 1 & 0 \\
+	0 & 0 & 0 & 1  
+	\end{bmatrix}
+	P_{xy} = \begin{bmatrix}
+	1 & 0 & 0 & 0 \\
+	0 & 1 & 0 & 0 \\
+	0 & 0 & 0 & 0 \\
+	0 & 0 & 0 & 1  
+	\end{bmatrix}
+	\end{equation}
+
+\subsection{Projection of a Point on Arbitrary Plane}
+	\begin{theorem}
+	Let a plane be $ax+by+cz=d$ such that $a^2+b^2+c^2 = 1$. Let a $P(x_1,y_1,z_1)$ be a point for which projection has to be found on the plane. Then the transformation matrix is given as,
+	\[
+		T = 
+		\begin{bmatrix}
+		1-a_2 & -ab & -ac & ad\\
+		-ab & 1-b^2 & -bc & bd\\
+		-ac & -bc & 1-c^2 & cd\\
+		0 & 0 & 0 & 1
+		\end{bmatrix}			
+	\]
+	\end{theorem}
+	\begin{proof}
+		Let $\lambda$ be a parameter. The vector equation of normal to the given plane is $a\hat{i}+b\hat{j}+c\hat{k}$. Using parametric equation of a point parallel to a vector and passing through a point we get point $Q(x+\lambda a, y+\lambda b,z+\lambda c)$. This point should lie on the plane. Substituting the point in the plane and solving we get,
+		
+			\begin{equation}
+				\lambda  = d-ax_1-by_1-cz_1
+			\end{equation}
+		Using this we get three equation,
+		
+			\begin{equation}
+				x_2 = (1-a^2)x_1 - (ab)y_1 - (ac)z_1 +ad
+			\end{equation}
+			\begin{equation}
+				y_2 = - (ab)x_1 +(1-b^2)y_1  - (bc)z_1 +bd
+			\end{equation}
+			\begin{equation}
+				z_2 =  - (ac)x_1 - (bc)y_1+ (1-c^2)z_1 +cd
+			\end{equation}
+		From these equations we get the above transformation matrix.
+	\end{proof}
+
+\subsection{Isometric Projection of a Point}
+
+In isometric projection, all the three axes are equally foreshortened when projected. In order to develop conditions for isometric projection, we consider a rotation about the y-axis followed by a rotation about x-axis.
+\begin{align}
+    \begin{bmatrix}
+    	X \\ Y \\ Z \\ W
+    \end{bmatrix} & =  
+    \begin{bmatrix}
+    	1 & 0 & 0 & 0 \\
+    	0 & \cos \theta & -\sin \theta & 0 \\
+    	0 & \sin \theta & \cos \theta & 0 \\
+    	0 & 0 & 0 & 1  
+    \end{bmatrix} 
+    \begin{bmatrix}
+    	\cos \phi & 0 & \sin \phi & 0 \\
+    	0 & 1 & 0 & 0 \\
+    	-\sin \phi & 0 & \cos \phi & 0 \\
+    	0 & 0 & 0 & 1  
+    \end{bmatrix}
+    \begin{bmatrix}
+    	x \\ y \\ z \\ 1
+    \end{bmatrix}\\
+    & = 
+    \begin{bmatrix}
+    	\cos \phi & 0 & \sin \phi & 0 \\
+    	\sin \phi \sin \theta & \cos \theta & -\cos \phi \sin \theta & 0 \\
+    	-\sin \phi \cos \theta & \sin \theta & \cos \phi \cos \theta & 0 \\
+    	0 & 0 & 0 & 1 
+    \end{bmatrix}
+    \begin{bmatrix}
+    	x \\ y \\ z \\ 1
+    \end{bmatrix}
+\end{align}
+
+Using this transformation matrix, the unit vectors in x,y and z directions will be translated to $\begin{bmatrix}
+\cos \phi & \sin \phi \sin \theta & -\sin \phi \cos \theta & 1
+\end{bmatrix}
+$, 
+$\begin{bmatrix}
+	0 & \cos \theta & \sin \theta & 1
+\end{bmatrix}$ and 
+$\begin{bmatrix}
+	\sin \phi & \cos \phi \sin \theta & \cos \phi \cos \theta & 1
+\end{bmatrix}$. Then we take a projection of these vectors on Z = 0 plane. The resulting magnitudes of the unit vectors in the original x, y and z directions after transformation now become $ \sqrt{\cos^2 \phi + ( \sin \phi \sin \theta )^2} $,  $\cos \theta$ and $\sqrt{\sin^2 \phi + (\cos \phi \sin \theta)^2}$.
+
+For isometric projection, all the three axes must be equally shortened. Thus, by equating their magnitudes, we get these two equations: 
+	\begin{equation}
+		\sin^2 \phi + (\cos \phi \sin \theta)^2 = \cos^2 \theta
+	\end{equation} 
+\begin{equation}
+\cos^2 \phi + ( \sin \phi \sin \theta )^2 = \cos^2 \theta
+\end{equation}
+
+On solving we get $\sin \theta = \dfrac{1}{\sqrt{3}}$ or $\theta = 35.26439^o$ and $\sin \phi = \dfrac{1}{\sqrt{2}}$ or $\phi = 45^o $
+
+Using these values , the transformation matrix now becomes 
+
+\begin{equation}
+    \begin{bmatrix}
+	X \\ Y \\ Z \\ W
+\end{bmatrix} = 
+\begin{bmatrix}
+	0.707107 & 0 & 0.707107 & 0 \\
+	0.408248 & 0.816597 & -0.408248 & 0 \\
+	-0.577353 & 0.577345 & 0.577353 & 0 \\
+	0 & 0 & 0 & 1
+\end{bmatrix} 
+\begin{bmatrix}
+	x \\ y \\ z \\ 1
+\end{bmatrix}
+\end{equation}
+
+These co-ordinates are now projected onto the $z=0$ plane. Thus the co-ordinates of the point $P(x,y,z)$ in its isometric projection will be 
+\begin{equation}
+    \label{isometric_formula}
+    \begin{bmatrix}
+	x^* \\ y^* \\ z^* \\ w^*
+	\end{bmatrix} = 
+	\begin{bmatrix}
+	0.707107 x + 0.707107z \\
+	0.408248 x + 0.816597 y - 0.408248 z \\
+	0 \\ 1
+	\end{bmatrix}
+\end{equation}
+
+\subsection{Projections of a 3D model}
+
+\begin{algorithm}
+    \caption{Constructing Orthographic Projections from 3D Model of an object}
+    \begin{algorithmic}
+        \STATE Let $\mathbb{V}$ be the set of vertices and $\mathbb{E}$ be the set of edges between these vertices
+        \STATE Let $ \mathbb{V}_{xy} $, $ \mathbb{V}_{yz} $ and $ \mathbb{V}_{xz} $ be empty sets of vertices and $ \mathbb{E}_{xy}$, $ \mathbb{E}_{yz}$ and $ \mathbb{E}_{xz}$ be the sets of corresponding edges.
+        \FOR{each vertex $v \in \mathbb{V}$}
+            \STATE Obtain $v_{xy}$, $v_{yz}$ and $v_{xz}$ by multiplying $v$ by transformation matrices given in \eqref{orthographic_std} 
+            \STATE Add $v_{xy}$ to  $ \mathbb{V}_{xy} $, $v_{yz}$ to  $ \mathbb{V}_{yz} $ and $v_{xz}$ to  $ \mathbb{V}_{xz} $ 
+        \ENDFOR
+        \FOR{each edge $e \in \mathbb{E}$ between vertices $v_i$ and $v_j$}
+            \STATE Add edges $e_{xy}$, $e_{yz}$ and $e_{xz}$ corresponding to the transformed vertices of $v_i$ and $v_j$.
+        \ENDFOR
+        \STATE $\mathbb{V}_{xy}$ and $\mathbb{E}_{xy}$ will form the orthographic projection of the original 3D model on the $xy$ plane and correspondingly for the $yz$ and $xz$ planes
+    \end{algorithmic}
+\end{algorithm}
+
+\begin{theorem}
+    A polygon face will not be visible if $\vec{V}.\vec{N} \geq 0 $ where $\vec{V}$ is the viewing direction and $\vec{N}$ is the direction of normal to the polygon face.
+\end{theorem}
+\begin{proof}
+\item Let $\theta$ be the angle between $\vec{V}$ and $\vec{N}$. The proof follows from the fact that a face is visible if $\theta > 90 ^ {\circ}$. Thus, for the face to be not visible, $\theta \leq 90^ {\circ}$ or $\cos \theta \geq 0$.
+\item $\therefore \ \ \vec{V}.\vec{N} = \| \vec{V} \|\| \vec{N} \| \cos \theta \geq 0$.
+\item Hence proved.
+\end{proof}
+
+Using the above theorem, we can find the faces which will not be visible. This can in turn be used to identify which edges will not be visible in a particular projection. Such edges can be found out using the following theorem. These edges can then either be displayed as dashed lines or not displayed at all.
+
+\begin{theorem}
+An edge is not visible if and only if all the faces consisting of that edge are not visible.
+\end{theorem}
+\begin{proof}
+    Since our object is a convex polyhedron, all of its faces are convex polygons. Hence, if a face is visible from a particular direction, then all of its edges must be visible. Thus, even if a single face connected to an edge is visible, then the edge itself will be visible. Hence, for an edge not to be visible, all the faces comprising that edge must be invisible.
+\end{proof}
+
+\begin{algorithm}
+	\caption{Constructing Isometric Projection from 3-d Description of an Object}
+	\begin{algorithmic}
+	    \STATE Let $\mathbb{V}$ be set of vertices and let $\mathbb{E}$ be set of edges.
+	    \STATE Create a set of new vertices $ \mathbb{V}_1 $ and a set of new edges $ \mathbb{E}_1$
+	    \FOR{each vertex $v_i \in \mathbb{V} $ }
+	         \STATE add vertex $V_{i}$ in $\mathbb{V}_1$, where $V_{i}$ is calculated using \eqref{isometric_formula}
+        \ENDFOR
+        \FOR{each edge $e_{ij} \in \mathbb{E}$ between vertices $v_i$ and $v_j$}
+            \STATE add an edge $E_{ij}$ between vertices $V_{i}$ and $V_{j}$ in $ \mathbb{E}_1 $
+        \ENDFOR
+	\end{algorithmic}
+\end{algorithm}
+
+\section{Reconstruction of 3D Wire-Frame Information from Orthographic Views}
+
+\subsection{Reconstruction of a Single Point}
+
+Let us assume that we need to find the space location of a point, given its projection in a plane. Let the transformation matrix for the plane $z=0$ be T which is given by
+	
+		\[
+			T = 
+			\begin{bmatrix}
+				1 & 0 & 0 & 0\\
+				0 & 1 & 0 & 0\\
+				0 & 0 & 0 & 0\\
+				0 & 0 & 0 & 1
+			\end{bmatrix}				
+		\]
+
+Let the general point in 3D-space be $(x,y,z)$ and its projection onto the $z=0$ plane be $(x^*,y^*,0)$. Then,
+
+	\[
+		[x^*,y^*,0,1] = [x,y,z,1]
+	\]
+Solving these equations we get,
+	\begin{equation}
+		x^* = x
+	\end{equation}
+	\begin{equation}
+		y^* = y
+	\end{equation}
+
+For reconstruction of 3D image from 2D image we are given $x^*,y^*$ and we need to find the space co-ordinates $x,y,z$. As we have two equation and three variables, the solution is impossible to find and hence the 3D figure can't be reconstructed form the orthographic projections. But if we have one more view we will have two more equations from other view, say from plane $x=0$ and point be $(0,y^*,z^*)$. Assuming we know the point to point correspondence, solving these we get,
+	
+	\begin{equation}
+	\label{abc}
+		y^* = y
+	\end{equation}
+	\begin{equation}
+	\label{abc2}
+		z^* = z
+	\end{equation}
+
+Hence we are able to determine the location of the point in 3D space.\\
+If the equation \eqref{abc} and \eqref{abc2} do not have the same solution, we say that such projections are inconsistent and hence no solution occurs.
+
+\subsection{Reconstruction of a Line}
+	
+	We again assume that the point to point correspondence for each orthographic view is known.
+	
+	\begin{theorem}
+		For reconstruction of line in 3D space from orthographic views we need at least 2 orthographic views.
+	\end{theorem} 
+	\begin{proof}
+		A line can be perfectly defined by any two points on it. Let the original line be defined as AB where A,B are any two points on the line. Let points be $A(x_a,y_a,z_a)$ and $B(x_b,y_b,z_b)$.\\
+		From the previous section we know that any point can be reconstructed from two orthographic views. So we will be able to reconstruct points A and B. Hence we will be able to reconstruct the line.  
+	\end{proof}
+
+\subsection{Reconstruction of 3D Wire-Frame Model}
+
+	A solid can be perfectly defined from the set of points, there relative connections such line and faces. The relationship between two points remain the same whether in 3D view of orthographic view. Hence by the previous theorem, 3D figure consisting of only planar objects can be reconstructed by using the reconstruction technique of the line.
+
+\section{Generation of 3D Surfaces and Full Solid Polyhedron}
+
+    In this section we give an algorithm for construction of full 3D solid polyhedron from the orthographic projection. For this we will have certain assumptions.
+    
+    \begin{enumerate}
+        \item All the information regarding the location of points in the orthographic views is known and the relation among them such as edges are known.
+        \item The orthographic view perfectly specifies the correspondence between different views.
+        \item The given orthographic view is constructed from a real object and there is no ambiguity in the different views. 
+        \item The views consists of straight lines and the original figure consists of only planar surfaces.
+        \item There should be on holes present though hidden lines may be present in the figure.
+    \end{enumerate}
+    
+    With these assumptions, we proceed to state our algorithm. The algorithm will be able to deal with hidden lines as well. Also, the given solid can be convex or concave. Further we state certain theorems to build upon the result.
+    
+    \begin{theorem}
+        Any plane surface can be broken down into set of plane triangles. The number of such triangles is $n-2$ where $n$ is the number of vertices of the planar surface.
+    \end{theorem}
+    \begin{proof}
+        We state the proof using induction over the number of vertices $n$.\\
+        Base case: n=3\\
+        Polygon with 3 vertices is a triangle which is made up of $3-2 = 1$ triangle.\\
+        Let this be true for $n=k$ vertices. We shall prove this for $n=k+1$ vertices.\\
+        Consider any one vertex of the $k+1$ sides polygon and join it with an edge to any of the second nearest neighbour of the polygon. Now this figure is composed of a $k$ sided polygon and a triangle. By the above assumption the $k$ sided polygon can be divided into triangles. Hence the result holds for $k+1$ sided polygon. Hence by PMI, this results holds for all $n\in \mathbb{Z}$.
+    \end{proof}
+
+    \begin{algorithm}
+        \caption{Generation of Surfaces}
+        \begin{algorithmic}
+            \STATE Let $\mathbb{V}$ be set of vertices and let $\mathbb{E}$ be set of edges.
+            \FOR{each $ v_i \in \mathbb{V}$ }
+                \FOR{each adjacent edge $e1,e2\in \mathbb{E}$}
+                    \STATE create a triangular surface between $v_i$ and $v_1,v_2$ where $v_i,v_1$ make edge $e_1$ and $v_i,v_2$ make edge $e_2$ 
+                \ENDFOR
+            \ENDFOR
+        \end{algorithmic}
+    \end{algorithm}
+    
+    \begin{theorem}
+        Correctness of the above algorithm
+    \end{theorem}
+    \begin{proof}
+        Each polyhedron is composed of planar surfaces and each surface can be constructed from the triangles which is proved in the previous theorem. Hence the above algorithm is correct.
+    \end{proof}
+    
+    Now we provide an algorithm for detecting adjacent edges from a vertex.
+    \begin{algorithm}
+        \caption{Detection of Adjacent Edges}
+        \begin{algorithmic}
+            \STATE Let $v$ be the vertex and let $v_j \in \mathbb{V}$ be the vertices adjacent to $v$ for $j=1,2,3\dots$ such that $v,v_j$ make edge $e_j$ with one end $v$.
+            \FORALL{$v_j$}
+                \STATE find a vertex $v_{j}'$ such that it is at unit distance from $v$ and in the direction of $v-v_j$.
+                \STATE $v_j' = v + \dfrac{v_j-v}{\norm{v_j-v}}$
+            \ENDFOR
+            \STATE find the centre vertex $v_c = \dfrac{\sum_{j}{v_j'}}{V}$.
+            \STATE choose any vertex say $v_1'$.
+            \FORALL{$v_j'$}
+                \STATE find angle $a_j$ such that $a_j = \arctan{\dfrac{v_j'.y-v_c.y}{v_j'.x-v_c.x}} - \arctan{\dfrac{v_1'.y-v_c.y}{v_1'.x-v_c.x}}$
+            \ENDFOR
+            \STATE sort the pairs $(a_j,e_j)$ in ascending order on basis of $a_j$.
+            \STATE consecutive terms in the sorted order gives us the adjacent edges.
+        \end{algorithmic}
+    \end{algorithm}
+    
+    \begin{theorem}The time complexity of the above algorithm is $\mathcal{O}(V+E+V\log{E})$.
+    \end{theorem}
+    \begin{proof}
+        As we look at each vertex once we get $\mathcal{O}(V)$. We also look at each edge twice and hence we get $\mathcal{O}(E)$. Now for the sorting part assume that each vertex $v_j$ is connected to $n_j$ number of edges. Now we know that sorting algorithm takes $\mathcal{O}(n\log{n})$ time. Hence total sorting time is $\mathcal{O}(\sum_{j=1}^{V}{n_j\log{n_j}})$.
+        \begin{equation}
+            \sum_{j=1}^{V}{n_j} = E
+        \end{equation}
+        
+        \begin{align}
+            \sum_{j=1}^{V}{n_j\log{n_j}} & = \sum_{j=1}^{V}{\log{n_j^{n_j}}}\\
+            &  = \log{\prod_{j=1}^{V}{n_j^{n_j} }  }\\
+            & \leq \log{ {\left(\frac{ \sum{n_j^2}}{\sum{n_j}}\right)}^V}\\
+            & \leq \log{ {\left(\frac{ (\sum{n_j})^2}{\sum{n_j}}\right)}^V}\\
+            & \leq \log{ {\left(\sum{n_j}\right)}^V}\\
+            & \leq V\log{E}
+        \end{align}
+    \end{proof}
+    
+
+\section{Detection of a Hole and Reconstruction of a Convex Polyhedron with Hole}
+
+    Here we assume that the hole is completely visible from outside and the shape of the hole is also a convex polyhedron.
+    
+    \subsection{Detection of hole in Wire-Frame Model}
+        
+        As there is a hole in the 3D solid, it will be shown as a hidden line in some views of orthographic projection while in others it is shown as a solid line. Hence we will be able to reconstruct the wire-frame model easily from the previous algorithm. 
+        
+        \begin{theorem}
+            In a convex polyhedron, if two closed polygon faces are co-planar and one of them completely encloses the other then the inner polygon has to be the hole.      
+        \end{theorem}
+        \begin{proof}
+            The proof follows from contradiction. Suppose the the inner polygon is not a part of the hole. Then there has to be surface inside that polygon. Also there cannot be hole in the outside as that is not a valid figure. Since the two co-planar surfaces which are joined to each other are not distinguishable implies that the inner-polygon is unnecessary and hence would not show up in the orthographic projection which is a contradiction. Hence the inner polygon has to be a part of the hole. 
+        \end{proof}
+
+\section{Conclusion}
+
+    In this document we analyse the mathematics required for the orthographic projection and isometric projection of a 3D solid. We also see the methods required to reconstruct a 3D polyhedron from the orthographic projections. The necessary and sufficient condition for reconstruction of a polyhedron is the availability of two orthographic projection with a condition that the point to point correspondence is available for both the views. Further improvement can me made in accuracy Reconstruction of curved surfaces.
+
+    
+    
+    
+\end{document}}

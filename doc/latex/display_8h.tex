@@ -1,0 +1,302 @@
+\hypertarget{display_8h}{}\section{display.\+h File Reference}
+\label{display_8h}\index{display.\+h@{display.\+h}}
+{\ttfamily \#include $<$G\+L/glew.\+h$>$}\newline
+{\ttfamily \#include $<$glm/glm.\+hpp$>$}\newline
+{\ttfamily \#include \char`\"{}glm/gtc/matrix\+\_\+transform.\+hpp\char`\"{}}\newline
+{\ttfamily \#include $<$glm/gtc/type\+\_\+ptr.\+hpp$>$}\newline
+{\ttfamily \#include $<$G\+L/glut.\+h$>$}\newline
+{\ttfamily \#include $<$G\+L/freeglut.\+h$>$}\newline
+{\ttfamily \#include $<$string$>$}\newline
+{\ttfamily \#include $<$vector$>$}\newline
+{\ttfamily \#include $<$cmath$>$}\newline
+{\ttfamily \#include \char`\"{}point.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}object2\+D.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}orthographic.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}object3\+D.\+h\char`\"{}}\newline
+{\ttfamily \#include $<$utility$>$}\newline
+{\ttfamily \#include $<$algorithm$>$}\newline
+Include dependency graph for display.\+h\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{display_8h__incl}
+\end{center}
+\end{figure}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{display_8h_a00fec396e195183623fac804494bae14}{initialise\+Glut}} ()
+\item 
+void \mbox{\hyperlink{display_8h_a1479f0135396d1da8b2e3b53bbf76bea}{draw\+Axis}} ()
+\item 
+void \mbox{\hyperlink{display_8h_afbed750fb4b47a35b89ed27013ef1ed7}{draw\+Axis\+Ortho}} ()
+\item 
+void \mbox{\hyperlink{display_8h_a9aefb21a75820e22cad4f3a9d8141c75}{keyboard}} (int key, int x, int y)
+\item 
+void \mbox{\hyperlink{display_8h_a15bb723be29642f3f7a7d65594e8e400}{make\+Line}} (glm\+::vec4 v1, glm\+::vec4 v2)
+\item 
+void \mbox{\hyperlink{display_8h_ac8bb3912a3ce86b15842e79d0b421204}{clear}} ()
+\item 
+void \mbox{\hyperlink{display_8h_a5a61d98384acd4ae597899ede878bc10}{clear\+Solid}} ()
+\item 
+void \mbox{\hyperlink{display_8h_a033cdabb8a11c8c51aac3d478c9d0a99}{render\+Wire3D}} ()
+\item 
+void \mbox{\hyperlink{display_8h_aabaa9df8411fb04f25d0d8c57d7676a1}{render\+Wire2D}} ()
+\item 
+void \mbox{\hyperlink{display_8h_a678b214934487d3899c70748e1ab13fa}{make\+Triangle}} (glm\+::vec4 a, glm\+::vec4 b, glm\+::vec4 c, glm\+::vec3 d)
+\item 
+glm\+::vec3 \mbox{\hyperlink{display_8h_ab9f5cf59a0083763b4f0129f4534b981}{cross}} (glm\+::vec4 a, glm\+::vec4 b)
+\item 
+void \mbox{\hyperlink{display_8h_a1755733190d5d1f71ab53b7a312a3afb}{render\+Solid3D}} ()
+\item 
+void \mbox{\hyperlink{display_8h_a67c0508c2a972cde8a032a30507ab113}{make\+Wire\+Frame}} (\mbox{\hyperlink{classobject3D}{object3D}} obj)
+\item 
+void \mbox{\hyperlink{display_8h_a1322fc6ed9d60edd489750625970eb69}{make\+Wire\+Frame}} (\mbox{\hyperlink{classobject2D}{object2D}} obj)
+\item 
+void \mbox{\hyperlink{display_8h_a166633547c25fb0e4a7e9ad3dec0b69e}{make\+Solid}} (\mbox{\hyperlink{classobject3D}{object3D}} obj)
+\item 
+void \mbox{\hyperlink{display_8h_acec548c51b36465faacca3216c5ba568}{make\+Orthographic}} (\mbox{\hyperlink{classorthographic}{orthographic}} obj)
+\item 
+void \mbox{\hyperlink{display_8h_a14c0faeb2d1eddd3150b5464cf3d5db3}{render\+Ortho}} ()
+\item 
+void \mbox{\hyperlink{display_8h_a9d848d1c4d6eb2d06560c2f9714b4bcb}{translated\+Render}} (glm\+::vec4 tr, glm\+::vec4 sca, int view\+\_\+number)
+\item 
+glm\+::vec4 \mbox{\hyperlink{display_8h_a385d494583bee0e23287d87de69da140}{change\+Coord}} (glm\+::vec4 ver, int view\+\_\+number)
+\item 
+void \mbox{\hyperlink{display_8h_aec2db323b595fa779c6a890f16343bd0}{make\+Isometric}} (\mbox{\hyperlink{classobject2D}{object2D}} obj)
+\item 
+void \mbox{\hyperlink{display_8h_a7aaceaab9a2c8d667c3a31dedc11dee2}{render\+Wire\+Iso}} ()
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+float \mbox{\hyperlink{display_8h_a8c76198699028c2a7e20377d7be0a1d8}{rX}}
+\item 
+float \mbox{\hyperlink{display_8h_a9bd9713cb50dc183d7081d9ec8e992d8}{rY}}
+\item 
+int \mbox{\hyperlink{display_8h_aa2e199e24ab9348b0514555b1e3ed642}{global\+\_\+argc}}
+\item 
+char $\ast$$\ast$ \mbox{\hyperlink{display_8h_a3e40e514937fc9a72d450b461a95dd75}{global\+\_\+argv}}
+\item 
+\mbox{\hyperlink{classobject3D}{object3D}} \mbox{\hyperlink{display_8h_a002476bba7e634fc8b1b756f41e30c4d}{rendering\+\_\+obj3D}}
+\item 
+\mbox{\hyperlink{classobject3D}{object3D}} \mbox{\hyperlink{display_8h_a27817ead792048f885eccb661151d3fb}{global\+\_\+obj3D}}
+\item 
+\mbox{\hyperlink{classobject2D}{object2D}} \mbox{\hyperlink{display_8h_a316011c2280afb4a7a56daedd08e55aa}{rendering\+\_\+obj2D}}
+\item 
+\mbox{\hyperlink{classobject2D}{object2D}} \mbox{\hyperlink{display_8h_acf4a02777bd541005052f8c0d54455bb}{global\+\_\+obj2D}}
+\item 
+\mbox{\hyperlink{classorthographic}{orthographic}} \mbox{\hyperlink{display_8h_aa6df6b74bbc619f915bf850d17f77309}{rendering\+\_\+obj\+Ortho}}
+\item 
+\mbox{\hyperlink{classorthographic}{orthographic}} \mbox{\hyperlink{display_8h_ac66b43d48c2773a7730009e20a6e952e}{global\+\_\+ortho\+Obj}}
+\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{display_8h_a385d494583bee0e23287d87de69da140}\label{display_8h_a385d494583bee0e23287d87de69da140}} 
+\index{display.\+h@{display.\+h}!change\+Coord@{change\+Coord}}
+\index{change\+Coord@{change\+Coord}!display.\+h@{display.\+h}}
+\subsubsection{\texorpdfstring{change\+Coord()}{changeCoord()}}
+{\footnotesize\ttfamily glm\+::vec4 change\+Coord (\begin{DoxyParamCaption}\item[{glm\+::vec4}]{ver,  }\item[{int}]{view\+\_\+number }\end{DoxyParamCaption})}
+
+function to rotate the coordinate system for orthographic views. \mbox{\Hypertarget{display_8h_ac8bb3912a3ce86b15842e79d0b421204}\label{display_8h_ac8bb3912a3ce86b15842e79d0b421204}} 
+\index{display.\+h@{display.\+h}!clear@{clear}}
+\index{clear@{clear}!display.\+h@{display.\+h}}
+\subsubsection{\texorpdfstring{clear()}{clear()}}
+{\footnotesize\ttfamily void clear (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+function to clear the glut screen in wireframe model \mbox{\Hypertarget{display_8h_a5a61d98384acd4ae597899ede878bc10}\label{display_8h_a5a61d98384acd4ae597899ede878bc10}} 
+\index{display.\+h@{display.\+h}!clear\+Solid@{clear\+Solid}}
+\index{clear\+Solid@{clear\+Solid}!display.\+h@{display.\+h}}
+\subsubsection{\texorpdfstring{clear\+Solid()}{clearSolid()}}
+{\footnotesize\ttfamily void clear\+Solid (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+function to clear the glut screen in the 3D models \mbox{\Hypertarget{display_8h_ab9f5cf59a0083763b4f0129f4534b981}\label{display_8h_ab9f5cf59a0083763b4f0129f4534b981}} 
+\index{display.\+h@{display.\+h}!cross@{cross}}
+\index{cross@{cross}!display.\+h@{display.\+h}}
+\subsubsection{\texorpdfstring{cross()}{cross()}}
+{\footnotesize\ttfamily glm\+::vec3 cross (\begin{DoxyParamCaption}\item[{glm\+::vec4}]{a,  }\item[{glm\+::vec4}]{b }\end{DoxyParamCaption})}
+
+function to take the cross product of two vectors \mbox{\Hypertarget{display_8h_a1479f0135396d1da8b2e3b53bbf76bea}\label{display_8h_a1479f0135396d1da8b2e3b53bbf76bea}} 
+\index{display.\+h@{display.\+h}!draw\+Axis@{draw\+Axis}}
+\index{draw\+Axis@{draw\+Axis}!display.\+h@{display.\+h}}
+\subsubsection{\texorpdfstring{draw\+Axis()}{drawAxis()}}
+{\footnotesize\ttfamily void draw\+Axis (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+function to display the axis in the glut display window \mbox{\Hypertarget{display_8h_afbed750fb4b47a35b89ed27013ef1ed7}\label{display_8h_afbed750fb4b47a35b89ed27013ef1ed7}} 
+\index{display.\+h@{display.\+h}!draw\+Axis\+Ortho@{draw\+Axis\+Ortho}}
+\index{draw\+Axis\+Ortho@{draw\+Axis\+Ortho}!display.\+h@{display.\+h}}
+\subsubsection{\texorpdfstring{draw\+Axis\+Ortho()}{drawAxisOrtho()}}
+{\footnotesize\ttfamily void draw\+Axis\+Ortho (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+function to display axis in orthographic view \mbox{\Hypertarget{display_8h_a00fec396e195183623fac804494bae14}\label{display_8h_a00fec396e195183623fac804494bae14}} 
+\index{display.\+h@{display.\+h}!initialise\+Glut@{initialise\+Glut}}
+\index{initialise\+Glut@{initialise\+Glut}!display.\+h@{display.\+h}}
+\subsubsection{\texorpdfstring{initialise\+Glut()}{initialiseGlut()}}
+{\footnotesize\ttfamily void initialise\+Glut (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+function to initialize the glut window for display \mbox{\Hypertarget{display_8h_a9aefb21a75820e22cad4f3a9d8141c75}\label{display_8h_a9aefb21a75820e22cad4f3a9d8141c75}} 
+\index{display.\+h@{display.\+h}!keyboard@{keyboard}}
+\index{keyboard@{keyboard}!display.\+h@{display.\+h}}
+\subsubsection{\texorpdfstring{keyboard()}{keyboard()}}
+{\footnotesize\ttfamily void keyboard (\begin{DoxyParamCaption}\item[{int}]{key,  }\item[{int}]{x,  }\item[{int}]{y }\end{DoxyParamCaption})}
+
+function to control the 3D figure rotation from the keyboard arrow keys \mbox{\Hypertarget{display_8h_aec2db323b595fa779c6a890f16343bd0}\label{display_8h_aec2db323b595fa779c6a890f16343bd0}} 
+\index{display.\+h@{display.\+h}!make\+Isometric@{make\+Isometric}}
+\index{make\+Isometric@{make\+Isometric}!display.\+h@{display.\+h}}
+\subsubsection{\texorpdfstring{make\+Isometric()}{makeIsometric()}}
+{\footnotesize\ttfamily void make\+Isometric (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classobject2D}{object2D}}}]{obj }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{display_8h_a15bb723be29642f3f7a7d65594e8e400}\label{display_8h_a15bb723be29642f3f7a7d65594e8e400}} 
+\index{display.\+h@{display.\+h}!make\+Line@{make\+Line}}
+\index{make\+Line@{make\+Line}!display.\+h@{display.\+h}}
+\subsubsection{\texorpdfstring{make\+Line()}{makeLine()}}
+{\footnotesize\ttfamily void make\+Line (\begin{DoxyParamCaption}\item[{glm\+::vec4}]{v1,  }\item[{glm\+::vec4}]{v2 }\end{DoxyParamCaption})}
+
+function to draw a line in the glut window between two points 
+\begin{DoxyParams}{Parameters}
+{\em v1} & takes first input vertex as glm vector \\
+\hline
+{\em v2} & takes second input vertex as glm vector \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{display_8h_acec548c51b36465faacca3216c5ba568}\label{display_8h_acec548c51b36465faacca3216c5ba568}} 
+\index{display.\+h@{display.\+h}!make\+Orthographic@{make\+Orthographic}}
+\index{make\+Orthographic@{make\+Orthographic}!display.\+h@{display.\+h}}
+\subsubsection{\texorpdfstring{make\+Orthographic()}{makeOrthographic()}}
+{\footnotesize\ttfamily void make\+Orthographic (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classorthographic}{orthographic}}}]{obj }\end{DoxyParamCaption})}
+
+function to actually setup call back functions for rendering orthographic views \mbox{\Hypertarget{display_8h_a166633547c25fb0e4a7e9ad3dec0b69e}\label{display_8h_a166633547c25fb0e4a7e9ad3dec0b69e}} 
+\index{display.\+h@{display.\+h}!make\+Solid@{make\+Solid}}
+\index{make\+Solid@{make\+Solid}!display.\+h@{display.\+h}}
+\subsubsection{\texorpdfstring{make\+Solid()}{makeSolid()}}
+{\footnotesize\ttfamily void make\+Solid (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classobject3D}{object3D}}}]{obj }\end{DoxyParamCaption})}
+
+function to actually setup call back functions for rendering 3D solid model \mbox{\Hypertarget{display_8h_a678b214934487d3899c70748e1ab13fa}\label{display_8h_a678b214934487d3899c70748e1ab13fa}} 
+\index{display.\+h@{display.\+h}!make\+Triangle@{make\+Triangle}}
+\index{make\+Triangle@{make\+Triangle}!display.\+h@{display.\+h}}
+\subsubsection{\texorpdfstring{make\+Triangle()}{makeTriangle()}}
+{\footnotesize\ttfamily void make\+Triangle (\begin{DoxyParamCaption}\item[{glm\+::vec4}]{a,  }\item[{glm\+::vec4}]{b,  }\item[{glm\+::vec4}]{c,  }\item[{glm\+::vec3}]{d }\end{DoxyParamCaption})}
+
+function to draw triangle between 3 points and make surface from the normal 
+\begin{DoxyParams}{Parameters}
+{\em a} & first vertex \\
+\hline
+{\em b} & second vertex \\
+\hline
+{\em c} & third vertex \\
+\hline
+{\em d} & normal vector to the surface \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{display_8h_a67c0508c2a972cde8a032a30507ab113}\label{display_8h_a67c0508c2a972cde8a032a30507ab113}} 
+\index{display.\+h@{display.\+h}!make\+Wire\+Frame@{make\+Wire\+Frame}}
+\index{make\+Wire\+Frame@{make\+Wire\+Frame}!display.\+h@{display.\+h}}
+\subsubsection{\texorpdfstring{make\+Wire\+Frame()}{makeWireFrame()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void make\+Wire\+Frame (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classobject3D}{object3D}}}]{obj }\end{DoxyParamCaption})}
+
+function to actually setup call back functions for rendering 3D wireframe object \mbox{\Hypertarget{display_8h_a1322fc6ed9d60edd489750625970eb69}\label{display_8h_a1322fc6ed9d60edd489750625970eb69}} 
+\index{display.\+h@{display.\+h}!make\+Wire\+Frame@{make\+Wire\+Frame}}
+\index{make\+Wire\+Frame@{make\+Wire\+Frame}!display.\+h@{display.\+h}}
+\subsubsection{\texorpdfstring{make\+Wire\+Frame()}{makeWireFrame()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void make\+Wire\+Frame (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classobject2D}{object2D}}}]{obj }\end{DoxyParamCaption})}
+
+function to actually setup call back functions for rendering 2D wireframe object \mbox{\Hypertarget{display_8h_a14c0faeb2d1eddd3150b5464cf3d5db3}\label{display_8h_a14c0faeb2d1eddd3150b5464cf3d5db3}} 
+\index{display.\+h@{display.\+h}!render\+Ortho@{render\+Ortho}}
+\index{render\+Ortho@{render\+Ortho}!display.\+h@{display.\+h}}
+\subsubsection{\texorpdfstring{render\+Ortho()}{renderOrtho()}}
+{\footnotesize\ttfamily void render\+Ortho (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+function to display the orthographic views on the glut screen \mbox{\Hypertarget{display_8h_a1755733190d5d1f71ab53b7a312a3afb}\label{display_8h_a1755733190d5d1f71ab53b7a312a3afb}} 
+\index{display.\+h@{display.\+h}!render\+Solid3D@{render\+Solid3D}}
+\index{render\+Solid3D@{render\+Solid3D}!display.\+h@{display.\+h}}
+\subsubsection{\texorpdfstring{render\+Solid3\+D()}{renderSolid3D()}}
+{\footnotesize\ttfamily void render\+Solid3D (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+function to render 3D solid model with surface shading \mbox{\Hypertarget{display_8h_aabaa9df8411fb04f25d0d8c57d7676a1}\label{display_8h_aabaa9df8411fb04f25d0d8c57d7676a1}} 
+\index{display.\+h@{display.\+h}!render\+Wire2D@{render\+Wire2D}}
+\index{render\+Wire2D@{render\+Wire2D}!display.\+h@{display.\+h}}
+\subsubsection{\texorpdfstring{render\+Wire2\+D()}{renderWire2D()}}
+{\footnotesize\ttfamily void render\+Wire2D (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+function to render 2D wireframe model \mbox{\Hypertarget{display_8h_a033cdabb8a11c8c51aac3d478c9d0a99}\label{display_8h_a033cdabb8a11c8c51aac3d478c9d0a99}} 
+\index{display.\+h@{display.\+h}!render\+Wire3D@{render\+Wire3D}}
+\index{render\+Wire3D@{render\+Wire3D}!display.\+h@{display.\+h}}
+\subsubsection{\texorpdfstring{render\+Wire3\+D()}{renderWire3D()}}
+{\footnotesize\ttfamily void render\+Wire3D (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+function to render 3D wireframe model \mbox{\Hypertarget{display_8h_a7aaceaab9a2c8d667c3a31dedc11dee2}\label{display_8h_a7aaceaab9a2c8d667c3a31dedc11dee2}} 
+\index{display.\+h@{display.\+h}!render\+Wire\+Iso@{render\+Wire\+Iso}}
+\index{render\+Wire\+Iso@{render\+Wire\+Iso}!display.\+h@{display.\+h}}
+\subsubsection{\texorpdfstring{render\+Wire\+Iso()}{renderWireIso()}}
+{\footnotesize\ttfamily void render\+Wire\+Iso (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{display_8h_a9d848d1c4d6eb2d06560c2f9714b4bcb}\label{display_8h_a9d848d1c4d6eb2d06560c2f9714b4bcb}} 
+\index{display.\+h@{display.\+h}!translated\+Render@{translated\+Render}}
+\index{translated\+Render@{translated\+Render}!display.\+h@{display.\+h}}
+\subsubsection{\texorpdfstring{translated\+Render()}{translatedRender()}}
+{\footnotesize\ttfamily void translated\+Render (\begin{DoxyParamCaption}\item[{glm\+::vec4}]{tr,  }\item[{glm\+::vec4}]{sca,  }\item[{int}]{view\+\_\+number }\end{DoxyParamCaption})}
+
+function to correctly translate the orthographic views for display 
+
+\subsection{Variable Documentation}
+\mbox{\Hypertarget{display_8h_aa2e199e24ab9348b0514555b1e3ed642}\label{display_8h_aa2e199e24ab9348b0514555b1e3ed642}} 
+\index{display.\+h@{display.\+h}!global\+\_\+argc@{global\+\_\+argc}}
+\index{global\+\_\+argc@{global\+\_\+argc}!display.\+h@{display.\+h}}
+\subsubsection{\texorpdfstring{global\+\_\+argc}{global\_argc}}
+{\footnotesize\ttfamily int global\+\_\+argc}
+
+\mbox{\Hypertarget{display_8h_a3e40e514937fc9a72d450b461a95dd75}\label{display_8h_a3e40e514937fc9a72d450b461a95dd75}} 
+\index{display.\+h@{display.\+h}!global\+\_\+argv@{global\+\_\+argv}}
+\index{global\+\_\+argv@{global\+\_\+argv}!display.\+h@{display.\+h}}
+\subsubsection{\texorpdfstring{global\+\_\+argv}{global\_argv}}
+{\footnotesize\ttfamily char$\ast$$\ast$ global\+\_\+argv}
+
+\mbox{\Hypertarget{display_8h_acf4a02777bd541005052f8c0d54455bb}\label{display_8h_acf4a02777bd541005052f8c0d54455bb}} 
+\index{display.\+h@{display.\+h}!global\+\_\+obj2D@{global\+\_\+obj2D}}
+\index{global\+\_\+obj2D@{global\+\_\+obj2D}!display.\+h@{display.\+h}}
+\subsubsection{\texorpdfstring{global\+\_\+obj2D}{global\_obj2D}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classobject2D}{object2D}} global\+\_\+obj2D}
+
+\mbox{\Hypertarget{display_8h_a27817ead792048f885eccb661151d3fb}\label{display_8h_a27817ead792048f885eccb661151d3fb}} 
+\index{display.\+h@{display.\+h}!global\+\_\+obj3D@{global\+\_\+obj3D}}
+\index{global\+\_\+obj3D@{global\+\_\+obj3D}!display.\+h@{display.\+h}}
+\subsubsection{\texorpdfstring{global\+\_\+obj3D}{global\_obj3D}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classobject3D}{object3D}} global\+\_\+obj3D}
+
+\mbox{\Hypertarget{display_8h_ac66b43d48c2773a7730009e20a6e952e}\label{display_8h_ac66b43d48c2773a7730009e20a6e952e}} 
+\index{display.\+h@{display.\+h}!global\+\_\+ortho\+Obj@{global\+\_\+ortho\+Obj}}
+\index{global\+\_\+ortho\+Obj@{global\+\_\+ortho\+Obj}!display.\+h@{display.\+h}}
+\subsubsection{\texorpdfstring{global\+\_\+ortho\+Obj}{global\_orthoObj}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classorthographic}{orthographic}} global\+\_\+ortho\+Obj}
+
+\mbox{\Hypertarget{display_8h_a316011c2280afb4a7a56daedd08e55aa}\label{display_8h_a316011c2280afb4a7a56daedd08e55aa}} 
+\index{display.\+h@{display.\+h}!rendering\+\_\+obj2D@{rendering\+\_\+obj2D}}
+\index{rendering\+\_\+obj2D@{rendering\+\_\+obj2D}!display.\+h@{display.\+h}}
+\subsubsection{\texorpdfstring{rendering\+\_\+obj2D}{rendering\_obj2D}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classobject2D}{object2D}} rendering\+\_\+obj2D}
+
+\mbox{\Hypertarget{display_8h_a002476bba7e634fc8b1b756f41e30c4d}\label{display_8h_a002476bba7e634fc8b1b756f41e30c4d}} 
+\index{display.\+h@{display.\+h}!rendering\+\_\+obj3D@{rendering\+\_\+obj3D}}
+\index{rendering\+\_\+obj3D@{rendering\+\_\+obj3D}!display.\+h@{display.\+h}}
+\subsubsection{\texorpdfstring{rendering\+\_\+obj3D}{rendering\_obj3D}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classobject3D}{object3D}} rendering\+\_\+obj3D}
+
+\mbox{\Hypertarget{display_8h_aa6df6b74bbc619f915bf850d17f77309}\label{display_8h_aa6df6b74bbc619f915bf850d17f77309}} 
+\index{display.\+h@{display.\+h}!rendering\+\_\+obj\+Ortho@{rendering\+\_\+obj\+Ortho}}
+\index{rendering\+\_\+obj\+Ortho@{rendering\+\_\+obj\+Ortho}!display.\+h@{display.\+h}}
+\subsubsection{\texorpdfstring{rendering\+\_\+obj\+Ortho}{rendering\_objOrtho}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classorthographic}{orthographic}} rendering\+\_\+obj\+Ortho}
+
+\mbox{\Hypertarget{display_8h_a8c76198699028c2a7e20377d7be0a1d8}\label{display_8h_a8c76198699028c2a7e20377d7be0a1d8}} 
+\index{display.\+h@{display.\+h}!rX@{rX}}
+\index{rX@{rX}!display.\+h@{display.\+h}}
+\subsubsection{\texorpdfstring{rX}{rX}}
+{\footnotesize\ttfamily float rX}
+
+\mbox{\Hypertarget{display_8h_a9bd9713cb50dc183d7081d9ec8e992d8}\label{display_8h_a9bd9713cb50dc183d7081d9ec8e992d8}} 
+\index{display.\+h@{display.\+h}!rY@{rY}}
+\index{rY@{rY}!display.\+h@{display.\+h}}
+\subsubsection{\texorpdfstring{rY}{rY}}
+{\footnotesize\ttfamily float rY}
+

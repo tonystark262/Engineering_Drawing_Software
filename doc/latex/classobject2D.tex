@@ -1,0 +1,83 @@
+\hypertarget{classobject2D}{}\section{object2D Class Reference}
+\label{classobject2D}\index{object2D@{object2D}}
+
+
+{\ttfamily \#include $<$object2\+D.\+h$>$}
+
+
+
+Collaboration diagram for object2D\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=171pt]{classobject2D__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classobject2D_a2169d77e7375f31356d2524c26c0a63f}{object2D}} ()
+\item 
+\mbox{\hyperlink{classobject2D_a7c2dd1d0bae14f68311ffa3194c7b848}{object2D}} (vector$<$ glm\+::vec4 $>$ vertices\+\_\+vec\+\_\+2d, vector$<$ vector$<$ int $>$ $>$ line\+\_\+2d)
+\item 
+void \mbox{\hyperlink{classobject2D_a6697aecc21bb2348fb81950cc0d83c83}{input\+From\+File}} (string filename)
+\item 
+vector$<$ glm\+::vec4 $>$ \mbox{\hyperlink{classobject2D_a529cdc088990e491fef49b97f58c9a5a}{get\+Vec}} ()
+\item 
+vector$<$ vector$<$ int $>$ $>$ \mbox{\hyperlink{classobject2D_a22bb00cbc061128b26645e6cdf7a2117}{get\+Edges}} ()
+\item 
+int \mbox{\hyperlink{classobject2D_a957470b9b7c66bf1def476cd4b7d5fde}{get\+Num\+Ver}} ()
+\end{DoxyCompactItemize}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classobject2D_a2169d77e7375f31356d2524c26c0a63f}\label{classobject2D_a2169d77e7375f31356d2524c26c0a63f}} 
+\index{object2D@{object2D}!object2D@{object2D}}
+\index{object2D@{object2D}!object2D@{object2D}}
+\subsubsection{\texorpdfstring{object2\+D()}{object2D()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily object2\+D\+::object2D (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+constructor for the 2D figure class \mbox{\Hypertarget{classobject2D_a7c2dd1d0bae14f68311ffa3194c7b848}\label{classobject2D_a7c2dd1d0bae14f68311ffa3194c7b848}} 
+\index{object2D@{object2D}!object2D@{object2D}}
+\index{object2D@{object2D}!object2D@{object2D}}
+\subsubsection{\texorpdfstring{object2\+D()}{object2D()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily object2\+D\+::object2D (\begin{DoxyParamCaption}\item[{vector$<$ glm\+::vec4 $>$}]{vertices\+\_\+vec\+\_\+2d,  }\item[{vector$<$ vector$<$ int $>$ $>$}]{line\+\_\+2d }\end{DoxyParamCaption})}
+
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{classobject2D_a22bb00cbc061128b26645e6cdf7a2117}\label{classobject2D_a22bb00cbc061128b26645e6cdf7a2117}} 
+\index{object2D@{object2D}!get\+Edges@{get\+Edges}}
+\index{get\+Edges@{get\+Edges}!object2D@{object2D}}
+\subsubsection{\texorpdfstring{get\+Edges()}{getEdges()}}
+{\footnotesize\ttfamily vector$<$vector$<$int$>$ $>$ object2\+D\+::get\+Edges (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+function to return the edges between all the vertices of the object in form of adjacency list. \mbox{\Hypertarget{classobject2D_a957470b9b7c66bf1def476cd4b7d5fde}\label{classobject2D_a957470b9b7c66bf1def476cd4b7d5fde}} 
+\index{object2D@{object2D}!get\+Num\+Ver@{get\+Num\+Ver}}
+\index{get\+Num\+Ver@{get\+Num\+Ver}!object2D@{object2D}}
+\subsubsection{\texorpdfstring{get\+Num\+Ver()}{getNumVer()}}
+{\footnotesize\ttfamily int object2\+D\+::get\+Num\+Ver (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+function to return the number of vertices in the object. \mbox{\Hypertarget{classobject2D_a529cdc088990e491fef49b97f58c9a5a}\label{classobject2D_a529cdc088990e491fef49b97f58c9a5a}} 
+\index{object2D@{object2D}!get\+Vec@{get\+Vec}}
+\index{get\+Vec@{get\+Vec}!object2D@{object2D}}
+\subsubsection{\texorpdfstring{get\+Vec()}{getVec()}}
+{\footnotesize\ttfamily vector$<$glm\+::vec4$>$ object2\+D\+::get\+Vec (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+function to return all the coordinates of the 2d object \mbox{\Hypertarget{classobject2D_a6697aecc21bb2348fb81950cc0d83c83}\label{classobject2D_a6697aecc21bb2348fb81950cc0d83c83}} 
+\index{object2D@{object2D}!input\+From\+File@{input\+From\+File}}
+\index{input\+From\+File@{input\+From\+File}!object2D@{object2D}}
+\subsubsection{\texorpdfstring{input\+From\+File()}{inputFromFile()}}
+{\footnotesize\ttfamily void object2\+D\+::input\+From\+File (\begin{DoxyParamCaption}\item[{string}]{filename }\end{DoxyParamCaption})}
+
+function to input the 2D figure from file 
+\begin{DoxyParams}{Parameters}
+{\em filename} & File to be taken as input Then it check the consistency If inconsistant, raises exception else constructs the object \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{object2D_8h}{object2\+D.\+h}}\end{DoxyCompactItemize}

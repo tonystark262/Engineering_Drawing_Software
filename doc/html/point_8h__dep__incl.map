@@ -1,0 +1,6 @@
+<map id="point.h" name="point.h">
+<area shape="rect" id="node2" href="$display_8h.html" title="display.h" alt="" coords="5,304,80,331"/>
+<area shape="rect" id="node3" href="$object2D_8h.html" title="This file contains the class object2D, which is used to model a 2D figure. " alt="" coords="59,80,144,107"/>
+<area shape="rect" id="node5" href="$object3D_8h.html" title="This file contains the class object3D which is used to model a 3D object. " alt="" coords="136,229,221,256"/>
+<area shape="rect" id="node4" href="$orthographic_8h.html" title="This file contains the class orthographic which is used to model orthographic projections of a 3D obj..." alt="" coords="49,155,153,181"/>
+</map>
